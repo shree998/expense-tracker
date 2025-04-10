@@ -112,12 +112,22 @@ const AddExpenses = ({ openModal, setShowModal, setExpenses, setBalance, editId,
             <input onChange={(e) => { setAmount(e.target.value) }} type="number" placeholder="Price" required />
           </div>
           <div style={{ display: 'flex', justifyContent: 'start', gap: '10px' }}>
-            <input list='category' onChange={(e) => { setCategory(e.target.value) }} type="" placeholder="Select Category" required />
+          <select name="category"
+                    value={category}
+                    onChange={(e) => { setCategory(e.target.value) }}
+                    required
+                >
+                    <option value='' disabled>Select category</option>
+                    <option value='food'>Food</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="travel">Travel</option>
+                </select>
+            {/* <input list='category' onChange={(e) => { setCategory(e.target.value) }} type="" placeholder="Select Category" required />
             <datalist id="category">
               <option value="Food" />
               <option value="Travel" />
               <option value="Entertainment" />
-            </datalist>
+            </datalist> */}
             <input onChange={(e) => { setDate(e.target.value) }} type="date" placeholder="dd/mm/yyy" required />
 
           </div>
@@ -130,7 +140,7 @@ const AddExpenses = ({ openModal, setShowModal, setExpenses, setBalance, editId,
                 color: "#FFFFFF"
               }}
               onClick={(e) => editId ? handleEditExpense(e) : handleAddExpense(e)}
-            >{editId ? "Edit Expense" : "Add Expenses"}</button>
+            >{editId ? "Edit Expense" : "Add Expense"}</button>
             <button onClick={() => setShowModal(false)}>Cancel</button>
           </div>
 
