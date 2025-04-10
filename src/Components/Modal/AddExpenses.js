@@ -110,8 +110,8 @@ const AddExpenses = ({ openModal, setShowModal, setExpenses, setBalance, editId,
         }}>{editId ? "Edit Expense" : "Add Expenses"}</h2>
         <form className={styles.expenseModal}>
           <div style={{ display: 'flex', justifyContent: 'start', gap: '10px' }}>
-            <input onChange={(e) => { setTitle(e.target.value) }} type="text" placeholder="Title" required />
-            <input onChange={(e) => { setAmount(e.target.value) }} type="number" placeholder="Price" required />
+            <input name='title' onChange={(e) => { setTitle(e.target.value) }} type="text" placeholder="Title" required />
+            <input name='price' onChange={(e) => { setAmount(e.target.value) }} type="number" placeholder="Price" required />
           </div>
           <div style={{ display: 'flex', justifyContent: 'start', gap: '10px' }}>
           <select name="category"
@@ -130,7 +130,7 @@ const AddExpenses = ({ openModal, setShowModal, setExpenses, setBalance, editId,
               <option value="Travel" />
               <option value="Entertainment" />
             </datalist> */}
-            <input onChange={(e) => { setDate(e.target.value) }} type="date" placeholder="dd/mm/yyy" required />
+            <input name='date' onChange={(e) => { setDate(e.target.value) }} type="date" placeholder="dd/mm/yyy" required />
 
           </div>
           <div style={{ display: 'flex', justifyContent: 'start', gap: '10px' }}>
