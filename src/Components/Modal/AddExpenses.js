@@ -36,11 +36,13 @@ const AddExpenses = ({ openModal, setShowModal, setExpenses, setBalance, editId,
   }
 
   const handleEditExpense = (e) => {
+    debugger
     e.preventDefault();
     const updated = expenseList.map(item => {
+      debugger
       if (item.id === editId) {
 
-        const priceDifference = item.price - Number(amount)
+        const priceDifference = item.amount - Number(amount)
 
         if (priceDifference < 0 && Math.abs(priceDifference) > balance) {
           enqueueSnackbar("Price should not exceed the wallet balance", { variant: "warning" })
@@ -49,7 +51,7 @@ const AddExpenses = ({ openModal, setShowModal, setExpenses, setBalance, editId,
         }
 
         setBalance(prev => prev + priceDifference)
-        return { ...[amount, title, category, date], id: editId } 
+        return { ...{amount, title, category, date}, id: editId } 
 
 
       }
@@ -118,9 +120,9 @@ const AddExpenses = ({ openModal, setShowModal, setExpenses, setBalance, editId,
                     required
                 >
                     <option value='' disabled>Select category</option>
-                    <option value='food'>Food</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="travel">Travel</option>
+                    <option value='Food'>Food</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Travel">Travel</option>
                 </select>
             {/* <input list='category' onChange={(e) => { setCategory(e.target.value) }} type="" placeholder="Select Category" required />
             <datalist id="category">

@@ -37,7 +37,6 @@ function App() {
     //  
    
     if (expenses.length > 0 || isMounted) {
-      debugger
       localStorage.setItem("expenses", JSON.stringify(expenses));
     }
   }
