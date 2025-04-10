@@ -1,0 +1,44 @@
+.dashboardContainer {
+        background:var(--primary-bg-color);
+        padding:24px;
+        min-height: 100vh;
+}
+
+.dashboardContainer h1{
+        color:#fff;
+        margin-bottom:10px;
+    }
+
+.dashboard {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap:32px;
+        padding:48px;
+        background: #626262;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+        margin-bottom: 20px;
+    
+}
+
+.transactionWrapper{
+        display: grid;
+        grid-template-columns: 1.9fr 1fr;
+        gap:32px;
+        padding:20px;
+}
+
+@media(max-width:767px){
+        .dashboardContainer h1{
+            text-align: center;
+        }
+        .dashboard{
+            padding: 16px;
+            grid-template-columns: 1fr;
+            gap:24px;
+        }
+        .transactionsWrapper{
+            grid-template-columns: 1fr;
+        }
+    }

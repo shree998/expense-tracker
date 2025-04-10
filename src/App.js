@@ -1,24 +1,70 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Dashboard from './Components/Dashboard/Dashboard';
+import { useEffect, useState } from 'react';
+import { SnackbarProvider } from 'notistack';
 
 function App() {
+
+  const [balance, setBalance] = useState(0);
+  const [expenses, setExpenses] = useState([]);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `Expense Tracker`;
+    if(localStorage.getItem('balance') === null){
+      localStorage.setItem('balance', 5000);
+      setBalance(5000);
+      return;
+    }else{
+      setBalance(parseInt(localStorage.getItem('balance')));
+     
+    }
+
+
+    const expenses = JSON.parse(localStorage.getItem('expenses'))
+
+    setExpenses(expenses || []);
+    setIsMounted(true)
+
+
+  }
+  , []);
+
+  
+  useEffect(() => {
+    //  
+   
+    if (expenses.length > 0 || isMounted) {
+      debugger
+      localStorage.setItem("expenses", JSON.stringify(expenses));
+    }
+  }
+  , [expenses]);
+
+
+  useEffect(() => {
+    //  
+   
+    if (isMounted) {
+     
+      localStorage.setItem("balance", balance);
+    }
+  }
+  , [balance]);
+
+
   return (
-    <div className="App">
+    <SnackbarProvider >
+         <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    
+      <Dashboard balance={balance} setBalance={setBalance} setExpenses={setExpenses} expenses={expenses}/>
       </header>
     </div>
+    </SnackbarProvider>
+   
   );
 }
 

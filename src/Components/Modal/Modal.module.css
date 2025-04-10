@@ -1,0 +1,41 @@
+.modal{
+    display: flex;  
+    justify-content: start;
+    gap: 10px;
+
+}
+
+.modal input, .expenseModal input{
+    width: 217px;
+height: 48px;
+border-radius: 15px;
+font-family: Open Sans;
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+padding-left: 5px;
+
+}
+
+.modal button, .expenseModal button { 
+    width: 145px;
+height: 51px;
+top: 378px;
+left: 630px;
+border-radius: 15px;
+font-family: Open Sans;
+font-weight: 700;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0%;
+
+
+}
+
+.expenseModal{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
