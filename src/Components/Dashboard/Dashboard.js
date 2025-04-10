@@ -65,9 +65,9 @@ function Dashboard({ balance, expenses, setBalance, setExpenses }) {
     <div className={styles.dashboardContainer}>
       <h1>Expense Tracker</h1>
       <div className={styles.dashboard}>
-        <Card title="Wallet Balance" money={balance} buttonText="+Add Income" buttonType="btn-success" handleClick={() => setShowModal(true)} />
+        <Card title="Wallet Balance" money={balance} buttonText="+ Add Income" buttonType="btn-success" handleClick={() => setShowModal(true)} />
 
-        <Card title="Expenses" success={false} money={expenses == null ? 0 : expenses !== null && expenses.reduce((acc, current) => acc + parseInt(current.amount), 0)} buttonText="+Add Expenses" buttonType="btn-failure" handleClick={() => { setShowExpenseModal(true) }} />
+        <Card title="Expenses" success={false} money={expenses == null ? 0 : expenses !== null && expenses.reduce((acc, current) => acc + parseInt(current.amount), 0)} buttonText="+ Add Expenses" buttonType="btn-failure" handleClick={() => { setShowExpenseModal(true) }} />
 
         <Chart data={chartData} />
       </div>
